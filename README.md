@@ -13,6 +13,19 @@ MVI Architecture with Kotlin , Rxjava . Testing with Mockito,Espresso
 * run `./gradlew test` for unit tests.
 * UI tests 
 * Jacoco for Code Coverage 
+ No coverage: No instruction in the line has been executed (red background)
+ Partial coverage: Only a part of the instruction in the line have been executed (yellow background)
+ Full coverage: All instructions in the line have been executed (green background)
+ you will find the .txt file in this destination
+        xml
+                {
+                    destination file("${buildDir}/reports/jacoco/test/jacocoTestReport.xml")
+                }
+        html
+                {
+                    destination file("${buildDir}/reports/jacoco/test/")
+                }
+   To run the test with code coverage , you need to click on Java->Run 'All Tests' with coverage , it will generate the analysis report
 
 
 ## TODO
