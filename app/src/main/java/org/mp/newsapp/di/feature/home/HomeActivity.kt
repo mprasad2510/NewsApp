@@ -12,6 +12,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.util.Log
 import dagger.android.HasActivityInjector
 import kotlinx.android.synthetic.main.activity_main.*
+import org.mp.newsapp.R
 import org.mp.newsapp.di.base.BaseActivity
 import org.mp.newsapp.di.feature.home.detail.UserActivity
 import org.mp.newsapp.di.mvibase.MviView
@@ -29,7 +30,7 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
 
     }
 
-    override fun layoutId(): Int = org.mp.newsapp.R.layout.activity_main
+    override fun layoutId(): Int = R.layout.activity_main
 
 
     @Inject
@@ -63,7 +64,7 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
             }
             if(showShareOption){
 
-                showShareIntent(articles)
+                showIntent(articles)
             }
 
 
@@ -71,7 +72,7 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
     }
     private var itemPosition: Int = 0
     private var itemValue:Int = 0
-    private fun showShareIntent(articles: List<Int>) {
+    private fun showIntent(articles: List<Int>) {
         for (value in articles) {
 
             itemValue = value
