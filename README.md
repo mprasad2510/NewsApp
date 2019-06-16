@@ -29,7 +29,7 @@ MVI Architecture with Kotlin , Rxjava . Testing with Mockito,Espresso
 
 
 ## TODO
-* Add Database Support (Wip on offline_support branch)
+* Add Database Support 
 
 ## License
 
