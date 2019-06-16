@@ -1,6 +1,6 @@
 # NewsApp
 # Android-Mvi
-MVI Architecture with Kotlin , Rxjava . Testing with Mockito,Roboelectric
+MVI Architecture with Kotlin , Rxjava . Testing with Mockito,Espresso
 
 ## Library Used
 * RxJava2 and RxAndroid
@@ -11,13 +11,12 @@ MVI Architecture with Kotlin , Rxjava . Testing with Mockito,Roboelectric
 
 ## Tests
 * run `./gradlew test` for unit tests.
-* UI tests (TODO)
+* UI tests 
+* Jacoco for Code Coverage 
 
 
 ## TODO
-* Add Ui tests
 * Add Database Support (Wip on offline_support branch)
-* Set up Code analysis tools
 
 ## License
 
