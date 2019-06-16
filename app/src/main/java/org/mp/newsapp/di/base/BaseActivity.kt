@@ -36,4 +36,5 @@ abstract class BaseActivity: DaggerAppCompatActivity(), HasActivityInjector {
         super.onDestroy()
         disposable.dispose()
     }
+
 }

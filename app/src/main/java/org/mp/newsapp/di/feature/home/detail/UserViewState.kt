@@ -4,7 +4,7 @@ import org.mp.newsapp.data.remote.model.User
 import org.mp.newsapp.di.mvibase.MviViewState
 
 
-data class UserViewState (val isLoading: Boolean,
+data class UserViewState (val isLoadingUser: Boolean,
                           val errorMessage: String,
                           val isError: Boolean,
                           val userList: User?,
@@ -15,7 +15,7 @@ data class UserViewState (val isLoading: Boolean,
     companion object {
         fun idle(): UserViewState {
             return UserViewState(
-                    isLoading = false,
+                    isLoadingUser = false,
                     isError = false,
                     errorMessage = "",
                     userList = null,

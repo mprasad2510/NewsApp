@@ -2,18 +2,18 @@ package org.mp.newsapp.di.feature.home.detail
 
 
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.util.Log
 import io.reactivex.Observable
 import io.reactivex.ObservableTransformer
 import org.mp.newsapp.data.Repository
-import org.mp.newsapp.di.feature.home.detail.UserActivity.Companion.id
 import org.mp.newsapp.di.mvibase.MviActionProcessorHolder
 import org.mp.newsapp.di.util.scheduler.BaseSchedulerProvider
 import javax.inject.Inject
 
- class UserActionProcessorHolder @Inject constructor(private val repository: Repository,
-                                                         private val schedulerProvider: BaseSchedulerProvider
-) : MviActionProcessorHolder<UserAction, UserResult> {
+class UserActionProcessorHolder @Inject constructor(private val repository: Repository,
+                                                         private val schedulerProvider: BaseSchedulerProvider) : MviActionProcessorHolder<UserAction, UserResult> {
     override fun transformFromAction(): ObservableTransformer<UserAction, UserResult> {
         return ObservableTransformer { action ->
             action.publish { shared ->
@@ -35,11 +35,12 @@ import javax.inject.Inject
         }
 
     }
-   //  var id :Int = UserActivity.id
-    private fun loadUser(): ObservableTransformer<UserAction.LoadUserAction, UserResult.LoadUserResult> {
+   //  var id :Int = 20157116
+
+     open fun loadUser(): ObservableTransformer<UserAction.LoadUserAction, UserResult.LoadUserResult> {
         return ObservableTransformer { action ->
             action.flatMap {
-                repository.loadUser(20157116)
+                repository.loadUser(UserActivity.id)
                         .map { response -> UserResult.LoadUserResult.Success(response)
                         //    Log.d("***ARTICLE ID***","$id")
                         }

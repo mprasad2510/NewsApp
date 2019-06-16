@@ -16,7 +16,7 @@ class UserViewModel(private val userActionProcessorHolder:
             return ObservableTransformer { intents ->
                 intents.publish { shared ->
                     Observable.merge<UserIntent>(
-                            shared.ofType(UserIntent.InitialIntent::class.java).take(1),
+                            shared.ofType(UserIntent.InitialIntent::class.java).take(2),
                             shared.filter { it != UserIntent.InitialIntent }
                     )
                 }
@@ -47,13 +47,13 @@ class UserViewModel(private val userActionProcessorHolder:
                 is UserResult.LoadUserResult -> {
                     when (result) {
                         is UserResult.LoadUserResult.Success -> {
-                            previousState.copy(isLoading = false, isError = false, errorMessage = "", userList = result.userList,showShareOption = true)
+                            previousState.copy(isLoadingUser = false, isError = false, errorMessage = "", userList = result.userList,showShareOption = true)
                         }
                         is UserResult.LoadUserResult.Failure -> {
-                            previousState.copy(isLoading = false, isError = true, errorMessage = result.errorMessage)
+                            previousState.copy(isLoadingUser = false, isError = true, errorMessage = result.errorMessage)
                         }
                         is UserResult.LoadUserResult.InFlight -> {
-                            previousState.copy(isLoading = true, isError = false, errorMessage = "")
+                            previousState.copy(isLoadingUser = true, isError = false, errorMessage = "")
                         }
                     }
                 }

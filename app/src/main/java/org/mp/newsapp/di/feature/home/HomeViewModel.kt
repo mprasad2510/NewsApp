@@ -20,7 +20,7 @@ class HomeViewModel(private val homeActionProcessorHolder:
         return ObservableTransformer { intents ->
             intents.publish { shared ->
                 Observable.merge<HomeIntent>(
-                        shared.ofType(HomeIntent.InitialIntent::class.java).take(1),
+                        shared.ofType(HomeIntent.InitialIntent::class.java).take(2),
                         shared.filter { it != HomeIntent.InitialIntent }
                 )
             }

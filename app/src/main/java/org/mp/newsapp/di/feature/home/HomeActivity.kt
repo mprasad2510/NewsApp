@@ -23,8 +23,10 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
 
     override fun bind() {
         newsRv.layoutManager = LinearLayoutManager(this)
+
         viewModel.processIntents(intents())
         viewModel.states().observe(this, Observer { if (it != null) render(it) })
+
     }
 
     override fun layoutId(): Int = org.mp.newsapp.R.layout.activity_main
@@ -64,6 +66,7 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
                 showShareIntent(articles)
             }
 
+
         }
     }
     private var itemPosition: Int = 0
@@ -81,9 +84,12 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
         Log.d("***POS OF ARTICLE***", "$itemPosition")
         Log.d("***ID OF ARTICLE***", "$itemValue")
             val intent = Intent(this@HomeActivity, UserActivity::class.java)
-            intent.putExtra("id",itemValue)
-            intent.putExtra("position", itemPosition)
-            Log.d("***ID OF ARTICLE1***", "$itemValue")
+             with(intent)
+             {
+                 putExtra("id", itemValue)
+                 putExtra("position", itemPosition)
+                 Log.d("***ID OF ARTICLE1***", "$itemValue")
+             }
             startActivity(intent)
 
     }
@@ -92,4 +98,5 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
     override fun activityInjector(): AndroidInjector<Activity> {
         return injector
     }
+
 }
