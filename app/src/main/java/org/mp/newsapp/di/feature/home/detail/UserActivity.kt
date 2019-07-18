@@ -4,8 +4,6 @@ import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.content.SharedPreferences
-import android.support.v4.content.ContextCompat.startActivity
 import android.util.Log
 import dagger.android.AndroidInjector
 import dagger.android.HasActivityInjector
@@ -13,7 +11,6 @@ import io.reactivex.Observable
 import io.reactivex.subjects.PublishSubject
 import kotlinx.android.synthetic.main.activity_user.*
 import org.mp.newsapp.R
-import org.mp.newsapp.data.Repository
 import org.mp.newsapp.data.remote.model.User
 import org.mp.newsapp.di.base.BaseActivity
 import org.mp.newsapp.di.feature.home.UserIntent
@@ -21,7 +18,6 @@ import org.mp.newsapp.di.mvibase.MviView
 import org.mp.newsapp.di.util.gone
 import org.mp.newsapp.di.util.visible
 import javax.inject.Inject
-import io.reactivex.subjects.BehaviorSubject
 
 
 class UserActivity : BaseActivity(), MviView<UserIntent, UserViewState>, HasActivityInjector {
@@ -32,7 +28,6 @@ class UserActivity : BaseActivity(), MviView<UserIntent, UserViewState>, HasActi
     }
     override fun bind() {
         id = intent.getIntExtra("id", 0)
-        Log.d("***ID OF ARTICLE2***", "$id")
         viewModel.processIntents(intents())
         viewModel.states().observe(this, Observer { if (it != null) render(it) })
     }
@@ -71,9 +66,9 @@ class UserActivity : BaseActivity(), MviView<UserIntent, UserViewState>, HasActi
                 progressBar1.gone()
             }
             text_by.text = StringBuilder().append("By : ").append(userList?.by)
-            text_comments.text = StringBuilder().append("Comments : ").append(userList?.title)
-            text_kids.text = userList?.kids.toString()
-            text_parent.text = userList?.score.toString()
+            text_comments.text = StringBuilder().append("Title : ").append(userList?.title)
+            text_kids.text =  StringBuilder().append("Kids : ").append(userList?.kids.toString())
+            text_parent.text =  StringBuilder().append("Parents : ").append(userList?.score.toString())
             text_time.text = StringBuilder().append("Comments : ").append(userList?.time)
 
             if (showShareOption) {

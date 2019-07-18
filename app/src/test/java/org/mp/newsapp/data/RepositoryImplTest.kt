@@ -1,6 +1,5 @@
 package org.mp.newsapp.data
 
-import com.google.gson.annotations.SerializedName
 import com.nhaarman.mockito_kotlin.whenever
 import io.reactivex.Observable
 import org.junit.Before

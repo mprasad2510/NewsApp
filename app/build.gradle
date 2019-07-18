@@ -39,8 +39,11 @@ android {
         }
 
     }
-    testOptions.unitTests.includeAndroidResources = true
-}
+    testOptions {
+        unitTests.includeAndroidResources = true
+    }
+    }
+
 
 //lintOptions {
 //    disable 'InvalidPackage' // Okio references java.nio that does not presented in Android SDK

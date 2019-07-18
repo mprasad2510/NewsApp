@@ -124,7 +124,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_parent"
-            tools:text="Kids"/>
+            tools:text="Kids" app:layout_constraintVertical_bias="0.063"/>
     <TextView
             android:id="@+id/text_comments"
             android:layout_width="0dp"
@@ -140,6 +140,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_kids"
-            tools:text="Comments"/>
+            tools:text="Comments" app:layout_constraintVertical_bias="0.079"/>
 
 </android.support.constraint.ConstraintLayout>

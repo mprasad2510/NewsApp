@@ -82,14 +82,11 @@ class HomeActivity : BaseActivity(), MviView<HomeIntent, HomeViewState> , HasAct
 
             itemPosition = position
         }
-        Log.d("***POS OF ARTICLE***", "$itemPosition")
-        Log.d("***ID OF ARTICLE***", "$itemValue")
             val intent = Intent(this@HomeActivity, UserActivity::class.java)
              with(intent)
              {
                  putExtra("id", itemValue)
                  putExtra("position", itemPosition)
-                 Log.d("***ID OF ARTICLE1***", "$itemValue")
              }
             startActivity(intent)
 

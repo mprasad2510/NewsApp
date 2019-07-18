@@ -27,7 +27,6 @@ class HomeActivityTest {
     @Before
     @Throws(Exception::class)
     fun setUp() {
-
         activity = Robolectric.buildActivity(HomeActivity::class.java!!)
             .create()
             .resume()
@@ -38,7 +37,6 @@ class HomeActivityTest {
         postList.layoutManager = linearLayoutManger
         val adapter = NewsAdapter(postLists,share)
         postList.adapter = adapter
-
     }
 
 
