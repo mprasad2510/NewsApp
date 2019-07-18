@@ -4,7 +4,6 @@ import android.app.Activity
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
-import android.util.Log
 import dagger.android.AndroidInjector
 import dagger.android.HasActivityInjector
 import io.reactivex.Observable
